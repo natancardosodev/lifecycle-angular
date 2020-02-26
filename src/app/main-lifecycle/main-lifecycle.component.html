@@ -39,7 +39,16 @@
                             [name]="c.name"
                             [age]="c.age"
                             [food]="c.food"
+                            #child
                         ></app-lifecycle-child>
+                    </p>
+                    <p mat-line>
+                        <mat-chip-list>
+                            <mat-chip *ngFor="let event of child.events"
+                                [color]="event.color" selected>
+                                {{event.name}}
+                            </mat-chip>
+                        </mat-chip-list>
                     </p>
                     <button mat-icon-button color="primary">
                         <mat-icon>edit</mat-icon>
