@@ -31,8 +31,15 @@ export class LifecycleChildComponent implements OnInit {
     //Called before any other lifecycle hook. Use it to inject dependencies, 
     //but avoid any serious work here.
     //Add '${implements OnChanges}' to the class.
-    console.log(this.name + " ngOnChanges: " + changes);
+    console.log(changes);
     this.newEvent("ngOnChanges");
+    for (const propName in changes) {
+      if (changes.hasOwnProperty(propName)) {
+        const element = changes[propName];
+        console.log("New: " + element.currentValue + 
+          " | Old: " + element.previousValue);
+      }
+    }
   }
 
   ngOnInit(): void {
