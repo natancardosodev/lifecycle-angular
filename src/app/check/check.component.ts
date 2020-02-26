@@ -10,7 +10,9 @@ export class CheckComponent implements OnInit {
   private name: string = "";
   private age: number = 0;
 
-  constructor() { }
+  constructor() { 
+    console.log("constructor");
+  }
 
   ngOnInit(): void {
     console.log("ngOnInit");
