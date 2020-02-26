@@ -13,7 +13,7 @@ export class MainLifecycleComponent implements OnInit {
   public name: string;
   public age: number;
   public food: string;
-  public editClient: Client = null;
+  public editClient: number = -1;
 
   constructor() { }
 
@@ -21,16 +21,32 @@ export class MainLifecycleComponent implements OnInit {
   }
 
   save() {
-    if (this.editClient === null) {
+    if (this.editClient == -1) {
       this.clients.push({
         name: this.name,
         age: this.age,
         food: this.food
       });
+    } else {
+      this.clients[this.editClient].name = this.name;
+      this.clients[this.editClient].age = this.age;
+      this.clients[this.editClient].food = this.food;
+      this.editClient = -1;
     }
     this.name = null;
     this.age = null;
     this.food = null;
+  }
+
+  edit(i: number) {
+    this.name = this.clients[i].name;
+    this.age = this.clients[i].age;
+    this.food = this.clients[i].food;
+    this.editClient = i;
+  }
+
+  remove(i: number) {
+    this.clients.splice(i, 1);
   }
 
 }
