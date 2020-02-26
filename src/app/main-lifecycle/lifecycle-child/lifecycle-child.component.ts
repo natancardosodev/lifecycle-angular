@@ -21,10 +21,12 @@ export class LifecycleChildComponent implements OnInit {
   public nextEventId: number = 0;
 
   colors: string[] = ["accent", "warn", "primary"];
+  private intervalRef = null;
 
   constructor() {
     console.log(this.name + " constructor");
     this.newEvent("constructor");
+    this.intervalRef = setInterval(() => {console.log('interval')}, 2000);
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -71,6 +73,7 @@ export class LifecycleChildComponent implements OnInit {
     //Add 'implements OnDestroy' to the class.
     console.log(this.name + " ngOnDestroy");
     this.newEvent("ngOnDestroy");
+    clearInterval(this.intervalRef);
   }
 
   newEvent(name: string) {

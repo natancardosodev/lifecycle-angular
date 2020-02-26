@@ -24,7 +24,7 @@
                 <mat-icon>check</mat-icon>
             </button>
 
-            <button mat-icon-button color="primary">
+            <button mat-icon-button color="primary" (click)="generateRandonNumber()">
                 <mat-icon>refresh</mat-icon>
             </button>
         </section>
@@ -40,7 +40,7 @@
                             [age]="c.age"
                             [food]="c.food"
                             #child>
-                            <span> - {{randonNumber}}</span>
+                            <span> ({{randonNumber}}) </span>
                         </app-lifecycle-child>
                     </p>
                     <p mat-line>
