@@ -7,12 +7,14 @@ import { MaterialModule } from './material.module';
 import { AppComponent } from './app.component';
 import { MainLifecycleComponent } from './main-lifecycle/main-lifecycle.component';
 import { LifecycleChildComponent } from './main-lifecycle/lifecycle-child/lifecycle-child.component';
+import { ChildChildComponent } from './main-lifecycle/lifecycle-child/child-child/child-child.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainLifecycleComponent,
-    LifecycleChildComponent
+    LifecycleChildComponent,
+    ChildChildComponent
   ],
   imports: [
     BrowserModule,
